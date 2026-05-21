@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.List;
 public class app {
     static Scanner sc  = new Scanner(System.in);
 
@@ -13,7 +12,8 @@ public class app {
                     System.out.println("Feliz dia :)");
                     break;
                 case 1:
-                    new gestion_equipo().probarConexion();
+                    gestion_equipo GE = new gestion_equipo();
+                    GE.flujo_gestion_team();
                     break;
                 case 2:
                     System.out.println("Gestion de jugadores");
@@ -23,7 +23,7 @@ public class app {
                     break;
 
                 default:
-                    System.out.println("Opción no válida.");
+                    System.out.println("Opcion no valida.");
             }
         } while (opcion != 0);
 

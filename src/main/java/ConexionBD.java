@@ -30,7 +30,7 @@ public class ConexionBD {
                 + ";encrypt=true;trustServerCertificate=true";
         try {
             conexion = DriverManager.getConnection(url, usuario, contrasena);
-            System.out.println("Conexión exitosa a la base de datos: " + baseDatos);
+            System.out.println("Conexion exitosa a la base de datos: " + baseDatos);
             return true;
         } catch (SQLException e) {
             System.out.println("Error al conectar: " + e.getMessage());
@@ -42,14 +42,13 @@ public class ConexionBD {
         try {
             if (conexion != null && !conexion.isClosed()) {
                 conexion.close();
-                System.out.println("Conexión cerrada.");
+                System.out.println("Conexion cerrada.");
             }
         } catch (SQLException e) {
-            System.out.println("Error al cerrar conexión: " + e.getMessage());
+            System.out.println("Error al cerrar conexion: " + e.getMessage());
         }
     }
 
-    // Devuelve filas de una consulta SELECT. El caller debe cerrar el ResultSet al terminar.
     public ResultSet consultar(String sql, Object... params) {
         try {
             PreparedStatement ps = conexion.prepareStatement(sql);
@@ -61,17 +60,17 @@ public class ConexionBD {
         }
     }
 
-    // Devuelve la cantidad de filas insertadas (1 si tuvo éxito, -1 si falló).
+    // Devuelve la cantidad de filas insertadas (1 si tuvo exito, -1 si fallo).
     public int insertar(String sql, Object... params) {
         return ejecutarActualizacion(sql, params);
     }
 
-    // Devuelve la cantidad de filas modificadas (-1 si falló).
+    // Devuelve la cantidad de filas modificadas (-1 si fallo).
     public int modificar(String sql, Object... params) {
         return ejecutarActualizacion(sql, params);
     }
 
-    // Devuelve la cantidad de filas eliminadas (-1 si falló).
+    // Devuelve la cantidad de filas eliminadas (-1 si fallo).
     public int eliminar(String sql, Object... params) {
         return ejecutarActualizacion(sql, params);
     }
@@ -81,7 +80,7 @@ public class ConexionBD {
             setParams(ps, params);
             return ps.executeUpdate();
         } catch (SQLException e) {
-            System.out.println("Error en operación: " + e.getMessage());
+            System.out.println("Error en operacion: " + e.getMessage());
             return -1;
         }
     }
