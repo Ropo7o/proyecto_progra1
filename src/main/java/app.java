@@ -16,10 +16,16 @@ public class app {
                     GE.flujo_gestion_team();
                     break;
                 case 2:
-                    System.out.println("Gestion de jugadores");
+                    gestion_jugadores GJ = new gestion_jugadores();
+                    GJ.flujo_gestion_jugador();
                     break;
                 case 3:
-                    System.out.println("Gestion partidos");
+                    gestion_partidos GP = new gestion_partidos();
+                    GP.flujo_gestion_partidos();
+                    break;
+                case 4:
+                    tabla_posiciones TP = new tabla_posiciones();
+                    TP.flujo_tabla();
                     break;
 
                 default:
@@ -37,6 +43,7 @@ public class app {
         System.out.println("║  1. GESTION DE EQUIPOS               ║");
         System.out.println("║  2. GESTION DE JUGADORES             ║");
         System.out.println("║  3. GESTION DE PARTIDOS              ║");
+        System.out.println("║  4. TABLA DE POSICIONES              ║");
         System.out.println("║  0. SALIR                            ║");
         System.out.println("╚══════════════════════════════════════╝");
         System.out.print("Seleccione: ");
